@@ -1,0 +1,262 @@
+﻿@model Object
+@{
+    ViewBag.Title = "Ödev Oluştur";
+}
+
+<h2>Ödev Oluştur</h2>
+
+
+<div class="row">
+
+    <div class=" col-2"></div>
+    <div class=" col-8">
+        <button id="otest" class="btn btn-primary">Çıktı Testi Ekle</button>
+        <button id="ktest1" class="btn btn-primary">Komut Testi Ekle</button>
+
+        <button class="btn btn-primary">Çalışma Süresi Ekle</button>
+
+        @using (Html.BeginForm("Create", "Assignment", FormMethod.Post))
+        {
+        <form method="post">
+            <textarea id="111" itemtype="http://schema.org/Book" name="textarea"></textarea>
+            <input type="hidden" class="lined-textarea active" name="LectureId" value="@Model.ToString()" />
+
+            <div id="infos">
+
+                <div class="row mt-3" id="x">
+                    <div class="col" style="margin-top:10px">
+
+                        <h5>Ödev için bir isim giriniz</h5>
+                        <input type="text" class="form-control" name="name" placeholder="">
+                    </div>
+                    <div class="col" style="margin-top:10px">
+
+                        <h5>Lint Aşamasının Puanını Giriniz</h5>
+                        <input type="text" class="form-control" name="lp" placeholder="">
+                    </div>  
+
+
+                    <div class="col" style="margin-top:10px">
+
+                        <h5>Ödev teslim süresi kaç gün olmalı</h5>
+                        <input type="text" class="form-control" name="date" placeholder="">
+                    </div>
+
+                    <div class="col" style="margin-top:10px">
+
+                        <h5>Ödev açıklaması giriniz...</h5>
+                        <input type="text" class="form-control" name="info" placeholder="">
+                    </div>
+
+
+
+                </div>
+
+
+            </div>
+
+            <div id="output_test">
+
+                <div class="row mt-3" id="x">
+                    <div class="col" style="margin-top:10px">
+                        <h3>Çıktı Testi</h3><button id="otestkaldir" type="button" class="btn btn-danger">Bu aşamayı kaldır.</button>
+
+                        <h5>Ödev çalıştırıldığı zaman beklediğiniz çıktıyı giriniz.</h5>
+                        <input type="text" class="form-control" name="cikti" placeholder="">
+                    </div>
+
+                    <h5>Bu aşamaya puan vermek ister misiniz? (Opsyonel)</h5>
+                    <div class="col" style="margin-top:10px">
+                        <input type="text" class="form-control" name="ciktipuan" placeholder="">
+                    </div>
+                </div>
+
+
+            </div>
+            <div id="komut_test1">
+
+                <div class="row mt-3" id="x">
+                    <div class="col" style="margin-top:10px">
+                        <h3>Komut Testi</h3><button id="komut1kaldir" type="button" class="btn btn-danger">Bu aşamayı kaldır.</button>
+
+                        <h5>Komutu Giriniz(Java Main arg1 arg2)</h5>
+                        <input type="text" class="form-control" name="komut1" placeholder="">
+                    </div>
+                    <div class="col" style="margin-top:10px">
+
+                        <h5>Beklediğiniz Çıktıyı Giriniz</h5>
+                        <input type="text" class="form-control" name="kc1" placeholder="">
+                    </div>
+
+
+                    <h5>Bu aşamaya puan vermek ister misiniz? (Opsyonel)</h5>
+                    <div class="col" style="margin-top:10px">
+                        <input type="text" class="form-control" name="kp1" placeholder="">
+                    </div>
+
+                    <div class="col" style="margin-top:10px">
+                        <button id="ktest2" class="btn btn-primary" type="button">Yeni Komut Testi Ekle</button>
+                    </div>
+                </div>
+
+            </div>
+            <div id="komut_test2">
+
+                <div class="row mt-3" id="x">
+                    <div class="col" style="margin-top:10px">
+                        <h3>Komut Testi 2</h3><button id="komut2kaldir" type="button" class="btn btn-danger">Bu aşamayı kaldır.</button>
+
+                        <h5>Komutu Giriniz(Java Main arg1 arg2)</h5>
+                        <input type="text" class="form-control" name="komut2" placeholder="">
+                    </div>
+                    <div class="col" style="margin-top:10px">
+
+                        <h5>Beklediğiniz Çıktıyı Giriniz</h5>
+                        <input type="text" class="form-control" name="kc2" placeholder="">
+                    </div>
+
+
+                    <h5>Bu aşamaya puan vermek ister misiniz? (Opsyonel)</h5>
+                    <div class="col" style="margin-top:10px">
+                        <input type="text" class="form-control" name="kp2" placeholder="">
+                    </div>
+
+                    <div class="col" style="margin-top:10px">
+                        <button id="ktest3" class="btn btn-primary" type="button">Yeni Komut Testi Ekle</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <hr />
+            <div id="komut_test3">
+
+                <div class="row mt-3" id="x">
+                    <div class="col" style="margin-top:10px">
+                        <h3>Komut Testi 3</h3><button id="komut3kaldir" type="button" class="btn btn-danger">Bu aşamayı kaldır.</button>
+
+                        <h5>Komutu Giriniz(Java Main arg1 arg2)</h5>
+                        <input type="text" class="form-control" name="komut3" placeholder="">
+                    </div>
+                    <div class="col" style="margin-top:10px">
+
+                        <h5>Beklediğiniz Çıktıyı Giriniz</h5>
+                        <input type="text" class="form-control" name="kc3" placeholder="">
+                    </div>
+
+
+                    <h5>Bu aşamaya puan vermek ister misiniz? (Opsyonel)</h5>
+                    <div class="col" style="margin-top:10px">
+                        <input type="text" class="form-control" name="kp3" placeholder="">
+                    </div>
+
+
+
+                </div>
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="row mt-3" id="bir">
+                <div class="col" style="margin-top:10px">
+                    <button class="btn btn-primary" type="submit">Oluştur</button>
+
+                </div>
+            </div>
+
+        </form>
+        }
+
+    </div>
+
+
+
+    <div class=" col-2"></div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="jquery.add-input-area.min.js"></script>
+<script>
+    $(document).ready(function () {
+
+        const textarea = document.querySelector('textarea')
+        textarea.addEventListener('input', () => {
+            const text = textarea.value;
+            const lines = text.split("\n");
+            const count = lines.length;
+            
+        })
+        $("#111").hide();
+
+
+        $("#output_test").hide();
+        $("#komut_test1").hide();
+        $("#komut_test2").hide();
+        $("#komut_test3").hide();
+
+
+        $("#otest").click(function () {
+            $("#output_test").show();
+            $("#otest").hide();
+
+        });
+        $("#otestkaldir").click(function () {
+            $("#output_test").hide();
+            $("#otest").show();
+
+        });
+
+        $("#ktest1").click(function () {
+            $("#komut_test1").show();
+            $("#ktest1").hide();
+
+        });
+
+        $("#komut1kaldir").click(function () {
+            $("#komut_test1").hide();
+            $("#ktest1").show();
+
+        });
+
+        $("#ktest2").click(function () {
+            $("#komut_test2").show();
+            $("#ktest2").hide();
+            $("#komut1kaldir").hide();
+
+        });
+
+        $("#komut2kaldir").click(function () {
+            $("#komut_test2").hide();
+            $("#ktest2").show();
+            $("#komut1kaldir").show();
+
+        });
+        $("#ktest3").click(function () {
+            $("#komut_test3").show();
+            $("#ktest3").hide();
+            $("#komut2kaldir").hide();
+
+        });
+
+        $("#komut3kaldir").click(function () {
+            $("#komut_test3").hide();
+            $("#ktest3").show();
+            $("#komut2kaldir").show();
+
+        });
+
+
+
+    });
+</script>

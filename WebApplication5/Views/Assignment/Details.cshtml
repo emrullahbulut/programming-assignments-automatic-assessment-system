@@ -1,0 +1,55 @@
+﻿@model  WebApplication5.Models.Assignment
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Ödev Detayları</h2>
+
+<p>Ödevin İsmi @Model.Name</p>
+<p>Ödevin Son Teslim Tarihi : @Model.DeliveryDate</p>
+<p>Ödev Bilgisi : @Model.Info </p>
+@if (WebApplication5.Utility.HelperClass.SessionAuth.IsLecturer())
+{
+    if (Model.Lecture.LectureStudent.ToList().Count > 0)
+    {
+
+        <table class="table">
+            <tr>
+                <th>İsim</th>
+                <th>Soy İsim</th>
+                <th>Mail</th>
+                <th>Sonuçları Gör</th>
+            </tr>
+            @foreach (var item in Model.Lecture.LectureStudent.ToList())
+            {
+                //(string assgname, string stuId, string clsId)
+
+                <tr>
+                    <td>@item.Student.Name</td>
+
+                    <td>@item.Student.Surname</td>
+                    <td>@item.Student.Mail</td>
+                    <td><a href="https://localhost:44341/Assignment/EvaluateStudents/?assgname=@Model.Name&stuId=@item.StudentId&clsId=@Model.LectureId">Sonuçlarını Gör</a></td>
+
+                </tr>
+
+            }
+
+
+        </table>
+        <a href="https://localhost:44341/Assignment/Sonuclar/?assgname=@Model.Name&clsId=@Model.LectureId">Sonuçları İncele</a>
+
+
+    }
+
+}
+
+@if (WebApplication5.Utility.HelperClass.SessionAuth.IsStudent())
+{
+
+    <a href="https://localhost:44341/Assignment/TakeDelivery/?assignId=@Model.AssignmentId">Ödevi Teslim Al</a>
+
+}
+
+
+

@@ -1,0 +1,41 @@
+﻿@model List<WebApplication5.Models.ExpectationEvaluate>
+@{
+    ViewBag.Title = "Sonuclar";
+}
+
+<h2>Sonuclar</h2>
+<table class="table">
+
+    @foreach (var item in ViewBag.list)
+    {
+
+        <td> @item</td>
+        foreach (var item2 in Model)
+
+        {
+            <td>
+
+                @if (item2.StudentId == item)
+                {
+
+                    @item2.Expectation.ExpectedType
+
+
+                }
+            </td>
+            <td> @item2.Point</td>
+            <td> @item2.Log |</td>
+
+        }
+
+
+
+    }
+    <td>Lint sonucu: @ViewBag.lint   </td>
+
+    <td>Toplam Puan: @ViewBag.item</td>
+
+
+
+</table>
+    @ViewBag.tru

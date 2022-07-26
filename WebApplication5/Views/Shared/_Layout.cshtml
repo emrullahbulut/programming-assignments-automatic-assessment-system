@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
+    </script>
+    <style>
+        .lined-textarea {
+            background: url(http://i.imgur.com/2cOaJ.png);
+            background-attachment: local;
+            background-repeat: no-repeat;
+            padding-left: 35px;
+            padding-top: 10px;
+            border-color: #ccc;
+            font-size: 13px;
+            line-height: 16px;
+            resize: none;
+        }
+    </style>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - ASP.NET Uygulamam</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Homework Evaluation System", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+
+                    @if (WebApplication5.Utility.HelperClass.SessionAuth.IsActive())
+                    {
+                        if (WebApplication5.Utility.HelperClass.SessionAuth.IsStudent())
+                        {
+                            <li>@Html.ActionLink("Öğrenci", "Index", "Home")</li>
+
+                            <li>@Html.ActionLink("Derslerim", "Lectures", "Lecture")</li>
+
+                        }
+                        else
+                        {
+                            <li>@Html.ActionLink("Öğretmen", "Index", "Home")</li>
+
+                            <li>@Html.ActionLink("Sınıflarım", "MyLectures", "Lecture")</li>
+
+                        }
+                        <li class="navbar-brand">@WebApplication5.Utility.HelperClass.SessionAuth.Name()</li>
+                        <li align="right">@Html.ActionLink("Çıkış Yap", "Index", "Logout")</li>
+
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("Üye Ol", "StudentSignUp", "Login")</li>
+                        <li>@Html.ActionLink("Öğretmen Girişi", "LectureLogin", "Login")</li>
+                        <li>@Html.ActionLink("Öğrenci Girişi", "StudentLogin", "Login")</li>
+
+
+
+                    }
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Haziran </p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+
+
+<div class="jumbotron">
+    @ViewBag.xx
+    <p class="lead">Otomatik Ödev Değerlendirme Sistemi</p>
+    <p>Not verirken zamandan tasarruf edin ve öğrencilerinizin nasıl performans gösterdiğine dair net bir fikir edinin.</p>
+</div>
+
+<div class="row">
+
+ 
+
+
+    @if (WebApplication5.Utility.HelperClass.SessionAuth.IsActive())
+    {
+        <div class="col-md-4">
+            <h2>GitHub Hesabımı Etkinleştir</h2>
+            <p>
+            </p>
+            <p class=""><a class="btn btn-default" href="https://github.com/login/oauth/authorize?client_id=3c32ff0b36a3be983b3e&scope=user%20repo%20admin:repo_hook%20admin:org%20admin:public_key%20notifications%20delete_repo%20workflow%20codespace%20admin:gpg_key">Etkinleştir. </a></p>
+        </div>
+
+
+        
+
+
+
+    }
+
+</div>
+
+<script>
+        $(document).ready(function () {
+            $("#link").click(function (e) {
+                e.preventDefault();
+
+                window.location.href
+                    = "C:\Users\Emrullah\Desktop\deneme.txt";
+            });
+        });
+</script>

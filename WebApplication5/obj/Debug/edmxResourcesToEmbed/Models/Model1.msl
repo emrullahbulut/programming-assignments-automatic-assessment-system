@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EvaluationSystemModelStoreContainer" CdmEntityContainer="EvaluationSystemEntities2">
+    <EntitySetMapping Name="Assignment">
+      <EntityTypeMapping TypeName="EvaluationSystemModel.Assignment">
+        <MappingFragment StoreEntitySet="Assignment">
+          <ScalarProperty Name="AssignmentId" ColumnName="AssignmentId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Info" ColumnName="Info" />
+          <ScalarProperty Name="LectureId" ColumnName="LectureId" />
+          <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Expectation">
+      <EntityTypeMapping TypeName="EvaluationSystemModel.Expectation">
+        <MappingFragment StoreEntitySet="Expectation">
+          <ScalarProperty Name="ExpectedId" ColumnName="ExpectedId" />
+          <ScalarProperty Name="ExpectedType" ColumnName="ExpectedType" />
+          <ScalarProperty Name="ExpectedValue" ColumnName="ExpectedValue" />
+          <ScalarProperty Name="InputTypye" ColumnName="InputTypye" />
+          <ScalarProperty Name="InputValue" ColumnName="InputValue" />
+          <ScalarProperty Name="AssignmentId" ColumnName="AssignmentId" />
+          <ScalarProperty Name="Factor" ColumnName="Factor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExpectationEvaluate">
+      <EntityTypeMapping TypeName="EvaluationSystemModel.ExpectationEvaluate">
+        <MappingFragment StoreEntitySet="ExpectationEvaluate">
+          <ScalarProperty Name="ExpectationEvaluateId" ColumnName="ExpectationEvaluateId" />
+          <ScalarProperty Name="Log" ColumnName="Log" />
+          <ScalarProperty Name="Point" ColumnName="Point" />
+          <ScalarProperty Name="ExpectationId" ColumnName="ExpectationId" />
+          <ScalarProperty Name="AssignmentId" ColumnName="AssignmentId" />
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lecture">
+      <EntityTypeMapping TypeName="EvaluationSystemModel.Lecture">
+        <MappingFragment StoreEntitySet="Lecture">
+          <ScalarProperty Name="LecutureId" ColumnName="LecutureId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Info" ColumnName="Info" />
+          <ScalarProperty Name="ActivationCode" ColumnName="ActivationCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lecturer">
+      <EntityTypeMapping TypeName="EvaluationSystemModel.Lecturer">
+        <MappingFragment StoreEntitySet="Lecturer">
+          <ScalarProperty Name="Lecturerid" ColumnName="Lecturerid" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Mail" ColumnName="Mail" />
+          <ScalarProperty Name="GitHubToken" ColumnName="GitHubToken" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lecturer_Lecuture">
+      <EntityTypeMapping TypeName="EvaluationSystemModel.Lecturer_Lecuture">
+        <MappingFragment StoreEntitySet="Lecturer_Lecuture">
+          <ScalarProperty Name="Lecture_LecturerId" ColumnName="Lecture_LecturerId" />
+          <ScalarProperty Name="LectureId" ColumnName="LectureId" />
+          <ScalarProperty Name="LecturerId" ColumnName="LecturerId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LectureStudent">
+      <EntityTypeMapping TypeName="EvaluationSystemModel.LectureStudent">
+        <MappingFragment StoreEntitySet="LectureStudent">
+          <ScalarProperty Name="LectureStudentId" ColumnName="LectureStudentId" />
+          <ScalarProperty Name="LectureId" ColumnName="LectureId" />
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Logs">
+      <EntityTypeMapping TypeName="EvaluationSystemModel.Logs">
+        <MappingFragment StoreEntitySet="Logs">
+          <ScalarProperty Name="LogsId" ColumnName="LogsId" />
+          <ScalarProperty Name="EvaluateStepId" ColumnName="EvaluateStepId" />
+          <ScalarProperty Name="LogInfo" ColumnName="LogInfo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Notification">
+      <EntityTypeMapping TypeName="EvaluationSystemModel.Notification">
+        <MappingFragment StoreEntitySet="Notification">
+          <ScalarProperty Name="NotificationId" ColumnName="NotificationId" />
+          <ScalarProperty Name="LecturerId" ColumnName="LecturerId" />
+          <ScalarProperty Name="LectureId" ColumnName="LectureId" />
+          <ScalarProperty Name="ContentLink" ColumnName="ContentLink" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Student">
+      <EntityTypeMapping TypeName="EvaluationSystemModel.Student">
+        <MappingFragment StoreEntitySet="Student">
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Mail" ColumnName="Mail" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="GitHubToken" ColumnName="GitHubToken" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="EvaluationSystemModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

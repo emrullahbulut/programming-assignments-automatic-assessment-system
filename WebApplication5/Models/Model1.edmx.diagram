@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8ba49c670ac346ba84f3137a3c29775e" Name="Diagram1">
+        <EntityTypeShape EntityType="EvaluationSystemModel.Assignment" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EvaluationSystemModel.Expectation" Width="1.5" PointX="5.25" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EvaluationSystemModel.ExpectationEvaluate" Width="1.5" PointX="7.5" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EvaluationSystemModel.Lecture" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EvaluationSystemModel.Lecturer" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EvaluationSystemModel.Lecturer_Lecuture" Width="1.5" PointX="3" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EvaluationSystemModel.LectureStudent" Width="1.5" PointX="3" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EvaluationSystemModel.Logs" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EvaluationSystemModel.Notification" Width="1.5" PointX="6" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EvaluationSystemModel.Student" Width="1.5" PointX="0.75" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EvaluationSystemModel.sysdiagrams" Width="1.5" PointX="9.75" PointY="3.75" IsExpanded="true" />
+        <AssociationConnector Association="EvaluationSystemModel.FK_Assignment_Lecture" ManuallyRouted="false" />
+        <AssociationConnector Association="EvaluationSystemModel.FK_Expectation_Assignment" ManuallyRouted="false" />
+        <AssociationConnector Association="EvaluationSystemModel.FK_ExpectationEvaluate_Assignment" ManuallyRouted="false" />
+        <AssociationConnector Association="EvaluationSystemModel.FK_ExpectationEvaluate_Assignment1" ManuallyRouted="false" />
+        <AssociationConnector Association="EvaluationSystemModel.FK_ExpectationEvaluate_Expectation" ManuallyRouted="false" />
+        <AssociationConnector Association="EvaluationSystemModel.FK_Lecturer_Lecuture_Lecture" ManuallyRouted="false" />
+        <AssociationConnector Association="EvaluationSystemModel.FK_LectureStudent_Lecture" ManuallyRouted="false" />
+        <AssociationConnector Association="EvaluationSystemModel.FK_Notification_Lecture" ManuallyRouted="false" />
+        <AssociationConnector Association="EvaluationSystemModel.FK_Lecturer_Lecuture_Lecturer" ManuallyRouted="false" />
+        <AssociationConnector Association="EvaluationSystemModel.FK_Notification_Lecturer1" ManuallyRouted="false" />
+        <AssociationConnector Association="EvaluationSystemModel.FK_LectureStudent_Student" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

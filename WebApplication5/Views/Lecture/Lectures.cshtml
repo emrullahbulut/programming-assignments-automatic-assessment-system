@@ -1,0 +1,39 @@
+﻿@model List<WebApplication5.Models.Lecture>
+@{
+    ViewBag.Title = "Derslerim";
+}
+
+<h2>Derslerim</h2>
+
+
+<div class="row">
+
+
+
+    @foreach (var item in Model)
+    {
+
+        <div class="col-sm-4">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="~/Content/kapak.png" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">@item.Name</h5>
+                    <p class="card-text">@item.Info</p>
+                    <a href="InfoS/?lectureId=@item.LecutureId" class="btn btn-primary">Sınıfa Git</a>
+                </div>
+            </div>
+        </div>
+
+
+
+    }
+
+    <div class="col-sm-4">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="~/Content/kapak.png" alt="Card image cap">
+            <div class="card-body">
+                <a href="https://localhost:44341/Lecture/JoinTheClass" class="btn btn-primary">Bir Sınıfa Katıl</a>
+            </div>
+        </div>
+    </div>
+</div>

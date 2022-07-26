@@ -1,0 +1,322 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EvaluationSystemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Assignment">
+    <Key>
+      <PropertyRef Name="AssignmentId" />
+    </Key>
+    <Property Name="AssignmentId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Info" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LectureId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DeliveryDate" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="Lecture" Relationship="Self.FK_Assignment_Lecture" FromRole="Assignment" ToRole="Lecture" />
+    <NavigationProperty Name="Expectation" Relationship="Self.FK_Expectation_Assignment" FromRole="Assignment" ToRole="Expectation" />
+    <NavigationProperty Name="ExpectationEvaluate" Relationship="Self.FK_ExpectationEvaluate_Assignment" FromRole="Assignment" ToRole="ExpectationEvaluate" />
+    <NavigationProperty Name="ExpectationEvaluate1" Relationship="Self.FK_ExpectationEvaluate_Assignment1" FromRole="Assignment" ToRole="ExpectationEvaluate" />
+  </EntityType>
+  <EntityType Name="Expectation">
+    <Key>
+      <PropertyRef Name="ExpectedId" />
+    </Key>
+    <Property Name="ExpectedId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ExpectedType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ExpectedValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InputTypye" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InputValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AssignmentId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Factor" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Assignment" Relationship="Self.FK_Expectation_Assignment" FromRole="Expectation" ToRole="Assignment" />
+    <NavigationProperty Name="ExpectationEvaluate" Relationship="Self.FK_ExpectationEvaluate_Expectation" FromRole="Expectation" ToRole="ExpectationEvaluate" />
+  </EntityType>
+  <EntityType Name="ExpectationEvaluate">
+    <Key>
+      <PropertyRef Name="ExpectationEvaluateId" />
+    </Key>
+    <Property Name="ExpectationEvaluateId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Log" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Point" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ExpectationId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AssignmentId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="StudentId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Assignment" Relationship="Self.FK_ExpectationEvaluate_Assignment" FromRole="ExpectationEvaluate" ToRole="Assignment" />
+    <NavigationProperty Name="Assignment1" Relationship="Self.FK_ExpectationEvaluate_Assignment1" FromRole="ExpectationEvaluate" ToRole="Assignment" />
+    <NavigationProperty Name="Expectation" Relationship="Self.FK_ExpectationEvaluate_Expectation" FromRole="ExpectationEvaluate" ToRole="Expectation" />
+  </EntityType>
+  <EntityType Name="Lecture">
+    <Key>
+      <PropertyRef Name="LecutureId" />
+    </Key>
+    <Property Name="LecutureId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Info" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ActivationCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Assignment" Relationship="Self.FK_Assignment_Lecture" FromRole="Lecture" ToRole="Assignment" />
+    <NavigationProperty Name="Lecturer_Lecuture" Relationship="Self.FK_Lecturer_Lecuture_Lecture" FromRole="Lecture" ToRole="Lecturer_Lecuture" />
+    <NavigationProperty Name="LectureStudent" Relationship="Self.FK_LectureStudent_Lecture" FromRole="Lecture" ToRole="LectureStudent" />
+    <NavigationProperty Name="Notification" Relationship="Self.FK_Notification_Lecture" FromRole="Lecture" ToRole="Notification" />
+  </EntityType>
+  <EntityType Name="Lecturer">
+    <Key>
+      <PropertyRef Name="Lecturerid" />
+    </Key>
+    <Property Name="Lecturerid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GitHubToken" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Lecturer_Lecuture" Relationship="Self.FK_Lecturer_Lecuture_Lecturer" FromRole="Lecturer" ToRole="Lecturer_Lecuture" />
+    <NavigationProperty Name="Notification" Relationship="Self.FK_Notification_Lecturer1" FromRole="Lecturer" ToRole="Notification" />
+  </EntityType>
+  <EntityType Name="Lecturer_Lecuture">
+    <Key>
+      <PropertyRef Name="Lecture_LecturerId" />
+    </Key>
+    <Property Name="Lecture_LecturerId" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LectureId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LecturerId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Lecture" Relationship="Self.FK_Lecturer_Lecuture_Lecture" FromRole="Lecturer_Lecuture" ToRole="Lecture" />
+    <NavigationProperty Name="Lecturer" Relationship="Self.FK_Lecturer_Lecuture_Lecturer" FromRole="Lecturer_Lecuture" ToRole="Lecturer" />
+  </EntityType>
+  <EntityType Name="LectureStudent">
+    <Key>
+      <PropertyRef Name="LectureStudentId" />
+    </Key>
+    <Property Name="LectureStudentId" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LectureId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="StudentId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Lecture" Relationship="Self.FK_LectureStudent_Lecture" FromRole="LectureStudent" ToRole="Lecture" />
+    <NavigationProperty Name="Student" Relationship="Self.FK_LectureStudent_Student" FromRole="LectureStudent" ToRole="Student" />
+  </EntityType>
+  <EntityType Name="Logs">
+    <Key>
+      <PropertyRef Name="LogsId" />
+    </Key>
+    <Property Name="LogsId" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EvaluateStepId" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LogInfo" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Notification">
+    <Key>
+      <PropertyRef Name="NotificationId" />
+    </Key>
+    <Property Name="NotificationId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LecturerId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LectureId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ContentLink" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Content" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Lecture" Relationship="Self.FK_Notification_Lecture" FromRole="Notification" ToRole="Lecture" />
+    <NavigationProperty Name="Lecturer" Relationship="Self.FK_Notification_Lecturer1" FromRole="Notification" ToRole="Lecturer" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="StudentId" />
+    </Key>
+    <Property Name="StudentId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GitHubToken" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="LectureStudent" Relationship="Self.FK_LectureStudent_Student" FromRole="Student" ToRole="LectureStudent" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_Assignment_Lecture">
+    <End Role="Lecture" Type="Self.Lecture" Multiplicity="1" />
+    <End Role="Assignment" Type="Self.Assignment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lecture">
+        <PropertyRef Name="LecutureId" />
+      </Principal>
+      <Dependent Role="Assignment">
+        <PropertyRef Name="LectureId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Expectation_Assignment">
+    <End Role="Assignment" Type="Self.Assignment" Multiplicity="1" />
+    <End Role="Expectation" Type="Self.Expectation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Assignment">
+        <PropertyRef Name="AssignmentId" />
+      </Principal>
+      <Dependent Role="Expectation">
+        <PropertyRef Name="AssignmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ExpectationEvaluate_Assignment">
+    <End Role="Assignment" Type="Self.Assignment" Multiplicity="0..1" />
+    <End Role="ExpectationEvaluate" Type="Self.ExpectationEvaluate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Assignment">
+        <PropertyRef Name="AssignmentId" />
+      </Principal>
+      <Dependent Role="ExpectationEvaluate">
+        <PropertyRef Name="AssignmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ExpectationEvaluate_Assignment1">
+    <End Role="Assignment" Type="Self.Assignment" Multiplicity="0..1" />
+    <End Role="ExpectationEvaluate" Type="Self.ExpectationEvaluate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Assignment">
+        <PropertyRef Name="AssignmentId" />
+      </Principal>
+      <Dependent Role="ExpectationEvaluate">
+        <PropertyRef Name="AssignmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ExpectationEvaluate_Expectation">
+    <End Role="Expectation" Type="Self.Expectation" Multiplicity="0..1" />
+    <End Role="ExpectationEvaluate" Type="Self.ExpectationEvaluate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Expectation">
+        <PropertyRef Name="ExpectedId" />
+      </Principal>
+      <Dependent Role="ExpectationEvaluate">
+        <PropertyRef Name="ExpectationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Lecturer_Lecuture_Lecture">
+    <End Role="Lecture" Type="Self.Lecture" Multiplicity="0..1" />
+    <End Role="Lecturer_Lecuture" Type="Self.Lecturer_Lecuture" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lecture">
+        <PropertyRef Name="LecutureId" />
+      </Principal>
+      <Dependent Role="Lecturer_Lecuture">
+        <PropertyRef Name="LectureId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LectureStudent_Lecture">
+    <End Role="Lecture" Type="Self.Lecture" Multiplicity="1" />
+    <End Role="LectureStudent" Type="Self.LectureStudent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lecture">
+        <PropertyRef Name="LecutureId" />
+      </Principal>
+      <Dependent Role="LectureStudent">
+        <PropertyRef Name="LectureId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Notification_Lecture">
+    <End Role="Lecture" Type="Self.Lecture" Multiplicity="1" />
+    <End Role="Notification" Type="Self.Notification" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lecture">
+        <PropertyRef Name="LecutureId" />
+      </Principal>
+      <Dependent Role="Notification">
+        <PropertyRef Name="LectureId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Lecturer_Lecuture_Lecturer">
+    <End Role="Lecturer" Type="Self.Lecturer" Multiplicity="0..1" />
+    <End Role="Lecturer_Lecuture" Type="Self.Lecturer_Lecuture" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lecturer">
+        <PropertyRef Name="Lecturerid" />
+      </Principal>
+      <Dependent Role="Lecturer_Lecuture">
+        <PropertyRef Name="LecturerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Notification_Lecturer1">
+    <End Role="Lecturer" Type="Self.Lecturer" Multiplicity="1" />
+    <End Role="Notification" Type="Self.Notification" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lecturer">
+        <PropertyRef Name="Lecturerid" />
+      </Principal>
+      <Dependent Role="Notification">
+        <PropertyRef Name="LecturerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LectureStudent_Student">
+    <End Role="Student" Type="Self.Student" Multiplicity="1" />
+    <End Role="LectureStudent" Type="Self.LectureStudent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="StudentId" />
+      </Principal>
+      <Dependent Role="LectureStudent">
+        <PropertyRef Name="StudentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EvaluationSystemEntities2" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Assignment" EntityType="Self.Assignment" />
+    <EntitySet Name="Expectation" EntityType="Self.Expectation" />
+    <EntitySet Name="ExpectationEvaluate" EntityType="Self.ExpectationEvaluate" />
+    <EntitySet Name="Lecture" EntityType="Self.Lecture" />
+    <EntitySet Name="Lecturer" EntityType="Self.Lecturer" />
+    <EntitySet Name="Lecturer_Lecuture" EntityType="Self.Lecturer_Lecuture" />
+    <EntitySet Name="LectureStudent" EntityType="Self.LectureStudent" />
+    <EntitySet Name="Logs" EntityType="Self.Logs" />
+    <EntitySet Name="Notification" EntityType="Self.Notification" />
+    <EntitySet Name="Student" EntityType="Self.Student" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <AssociationSet Name="FK_Assignment_Lecture" Association="Self.FK_Assignment_Lecture">
+      <End Role="Lecture" EntitySet="Lecture" />
+      <End Role="Assignment" EntitySet="Assignment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Expectation_Assignment" Association="Self.FK_Expectation_Assignment">
+      <End Role="Assignment" EntitySet="Assignment" />
+      <End Role="Expectation" EntitySet="Expectation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ExpectationEvaluate_Assignment" Association="Self.FK_ExpectationEvaluate_Assignment">
+      <End Role="Assignment" EntitySet="Assignment" />
+      <End Role="ExpectationEvaluate" EntitySet="ExpectationEvaluate" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ExpectationEvaluate_Assignment1" Association="Self.FK_ExpectationEvaluate_Assignment1">
+      <End Role="Assignment" EntitySet="Assignment" />
+      <End Role="ExpectationEvaluate" EntitySet="ExpectationEvaluate" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ExpectationEvaluate_Expectation" Association="Self.FK_ExpectationEvaluate_Expectation">
+      <End Role="Expectation" EntitySet="Expectation" />
+      <End Role="ExpectationEvaluate" EntitySet="ExpectationEvaluate" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Lecturer_Lecuture_Lecture" Association="Self.FK_Lecturer_Lecuture_Lecture">
+      <End Role="Lecture" EntitySet="Lecture" />
+      <End Role="Lecturer_Lecuture" EntitySet="Lecturer_Lecuture" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LectureStudent_Lecture" Association="Self.FK_LectureStudent_Lecture">
+      <End Role="Lecture" EntitySet="Lecture" />
+      <End Role="LectureStudent" EntitySet="LectureStudent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Notification_Lecture" Association="Self.FK_Notification_Lecture">
+      <End Role="Lecture" EntitySet="Lecture" />
+      <End Role="Notification" EntitySet="Notification" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Lecturer_Lecuture_Lecturer" Association="Self.FK_Lecturer_Lecuture_Lecturer">
+      <End Role="Lecturer" EntitySet="Lecturer" />
+      <End Role="Lecturer_Lecuture" EntitySet="Lecturer_Lecuture" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Notification_Lecturer1" Association="Self.FK_Notification_Lecturer1">
+      <End Role="Lecturer" EntitySet="Lecturer" />
+      <End Role="Notification" EntitySet="Notification" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LectureStudent_Student" Association="Self.FK_LectureStudent_Student">
+      <End Role="Student" EntitySet="Student" />
+      <End Role="LectureStudent" EntitySet="LectureStudent" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,64 @@
+﻿@model WebApplication5.Models.Lecture
+@{
+    ViewBag.Title = "Info";
+}
+
+
+
+<div class="row mt-3">
+
+    <div class="col-2"></div>
+    <div class="col-8">
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-4">@Model.Name</h1>
+                <p class="lead">@Model.Info  -- Aktivasyon Kodu :  @Model.ActivationCode</p>
+            </div>
+        </div>
+
+        <div class="mt-3">
+
+            <h1>Ödevler</h1>
+
+            <div class="row">
+
+                <div class="col-sm-6">
+                    <div class="card" style="width: 24rem;">
+
+                        <div class="card-body">
+                            <h5 class="card-title">Yeni Bir Ödev Oluşturun</h5>
+                            <p class="card-text">-</p>
+                            <a href="/Assignment/Create/?LectureId=@Model.LecutureId" class="btn btn-primary"> Ödev Oluştur</a>
+                        </div>
+                    </div>
+                </div>
+
+                @foreach (var item in Model.Assignment)
+                {
+                 
+                    <div class="col-sm-6">
+                        <div class="card" style="width: 24rem;">
+
+                            <div class="card-body">
+                                <h5 class="card-title">Teslim Tarihi : @item.DeliveryDate</h5>
+                                <p class="card-text">@item.Name</p>
+                                <a href="https://localhost:44341/Assignment/Details/?assgnID=@item.AssignmentId" class="btn btn-primary">Ödev Detaylarına Git</a>
+                            </div>
+                        </div>
+                    </div>
+
+                }
+          
+            </div>
+
+        </div>
+
+
+        <br />
+
+
+
+
+    </div>
+    <div class="col-2 "></div>
+</div>

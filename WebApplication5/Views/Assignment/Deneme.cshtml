@@ -1,0 +1,32 @@
+﻿@model List<WebApplication5.Models.Expectation>
+@{
+    ViewBag.Title = "Deneme";
+}
+
+
+
+
+
+
+    <a id="link" href="#">
+        <a href="https://localhost:44341/Home/DownloadZipFile/?clsId=@ViewBag.clsId&assgnName=@ViewBag.assgnName" target="_blank" class="btn btn-primary" style="margin-top:20px;">Ödevi İndir</a>
+    </a>
+    <br />  
+    <br />
+
+
+    Ödevi Nasıl GitHuba Yüklemek için : 
+
+    <ul>
+        <li>git init</li>
+        <li>git add .</li>
+        <li> git commit "odev yuklendi"</li>
+        <li>git remote add origin @ViewBag.mesaj</li>
+        <li>git push -u origin main</li>
+
+    </ul>
+
+
+ 
+
+

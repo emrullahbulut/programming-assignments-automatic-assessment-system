@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewBag.Title = "CreateLecture";
+}
+
+<h2>Yeni Bir Ders Oluşturun</h2>
+
+
+@using (Html.BeginForm("CreateLecture", "Lecture", FormMethod.Post))
+{
+    <form method="post">
+        
+        <input type="hidden" class="lined-textarea active" name="lectId" value="@ViewBag.id" />
+
+        <div id="infos">
+
+            <div class="row mt-3" id="x">
+                <div class="col" style="margin-top:10px">
+
+                    <h5>Dersin isimini giriniz</h5>
+                    <input type="text" class="form-control" name="name" placeholder="">
+                </div>
+
+
+                <div class="col" style="margin-top:10px">
+
+                    <h5>Ders Açıklaması Giriniz</h5>
+                    <input type="text" class="form-control" name="info" placeholder="">
+                </div>
+
+          
+
+
+
+            </div>
+
+
+        </div>
+
+        
+  
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="row mt-3" id="bir">
+            <div class="col" style="margin-top:10px">
+                <button class="btn btn-primary" type="submit">Oluştur</button>
+
+            </div>
+        </div>
+
+    </form>
+}
+
+
+
